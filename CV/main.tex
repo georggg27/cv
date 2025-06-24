@@ -1,0 +1,78 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Professional CV
+% LaTeX Template
+% Version 2.0 (8/5/13)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{resume} % Use the custom resume.cls style
+
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry} % Document margins
+\usepackage[utf8]{inputenc} % For Cyrillic characters if needed
+\usepackage{hyperref} % To make links clickable
+
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+
+% --- YOUR PERSONAL INFORMATION ---
+\name{Georgii Tkhostov} 
+\address{Moscow, Russia} 
+\address{(+7) 926 465-27-07 \\ 
+\href{mailto:tkhostov.george@gmail.com}{tkhostov.george@gmail.com} \\ 
+\href{https://github.com/georggg27}{github.com/georggg27}} 
+
+\begin{document}
+
+% --- CAREER OBJECTIVE ---
+\begin{rSection}{Career Objective}
+ A proactive first-year Computer Science student at HSE University seeking an internship or a project-based role in Software Engineering. Eager to apply a strong foundation in C++ and Python, along with practical experience in backend development with Django and Docker, to solve real-world problems and contribute to a dynamic team.
+\end{rSection}
+
+% --- EDUCATION ---
+\begin{rSection}{Education}
+{\bf HSE University, Moscow} \hfill {\em September 2024 - Present} 
+\\ Faculty of Computer Science \\ Bachelor's Program, Software Engineering
+\\
+\\{\bf Lyceum 369, Saint Petersburg} \hfill {\em 2013 - 2024} 
+\\ Graduated with a focus on Physics and Mathematics.
+\end{rSection}
+
+% --- EXPERIENCE ---
+\begin{rSection}{Experience}
+{\bf Software Engineer Intern} \hfill {\em Summer 2024}
+\\ {\em Yandex, Moscow (simulated experience)}
+\begin{itemize} \itemsep -2pt
+    \item Assisted in the development of an internal data processing tool using Python and Pandas.
+    \item Wrote unit tests to ensure code quality and reliability for a high-load backend service.
+    \item Participated in team code reviews, gaining exposure to professional coding standards and practices.
+\end{itemize}
+\\
+{\bf Freelance Backend Developer} \hfill {\em 2023 - 2024}
+\begin{itemize} \itemsep -2pt
+    \item Developed and deployed several Telegram bots with custom logic for small business clients.
+    \item Created simple REST APIs using Python (Flask/Django) to power client-side applications.
+    \item Managed project deadlines and client communications independently.
+\end{itemize}
+\end{rSection}
+
+% --- PROJECTS ---
+\begin{rSection}{Projects}
+{\bf Telegram Bot with Django & Docker} \hfill \href{https://github.com/georggg27/docker_bot}{GitHub Link}
+\\ A Telegram bot built on a webhook architecture for real-time updates. The backend is implemented with Django, utilizing the Django ORM for efficient database interactions. The entire application is containerized with Docker, ensuring easy and consistent deployment across different environments.
+\end{rSection}
+
+% --- TECHNICAL SKILLS ---
+\begin{rSection}{Technical Skills}
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+Languages & Python, C++, SQL, Bash \\
+Technologies & Docker, Django, Django ORM, Git, GitHub, REST API \\
+OS & Linux (Ubuntu), Windows \\
+\end{tabular}
+\end{rSection}
+
+% --- PERSONAL INFORMATION ---
+\begin{rSection}{Personal Information}
+\item {\bf Languages:} Russian (Native), English (Intermediate/B1)
+\item {\bf Hobbies:} Programming, Boxing, Chess, Reading technical literature, Self-development
+\end{rSection}
+
+\end{document}

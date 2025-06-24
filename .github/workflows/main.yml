@@ -1,0 +1,48 @@
+name: Build and Deploy LaTeX Resume
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Determine base system
+        id: system_chooser
+        run: echo "image_name=$(python choose_system.py | grep -o -E '[a-z]+:[0-9.]+' | head -1)" >> $GITHUB_OUTPUT
+
+      - name: Build Docker image
+        run: |
+          echo "Using base image: ${{ steps.system_chooser.outputs.image_name }}"
+          docker build --build-arg BASE_IMAGE=${{ steps.system_chooser.outputs.image_name }} -t resume-builder .
+
+      - name: Run Docker container to build PDF
+        run: docker run --rm -v $(pwd):/app resume-builder
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: My-Resume-PDF
+          path: resume.pdf
+      - name: Prepare deployment assets
+        run: |
+          mkdir public
+          mv resume.pdf public/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./public
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          keep_files: false
